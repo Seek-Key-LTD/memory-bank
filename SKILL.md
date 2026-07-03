@@ -1,7 +1,7 @@
 ---
 name: mem-ops
 description: "MemOps 事态感知总线 — Neo4j + mem0 + GraphRAG 统一查询入口。当用户表达中明显缺少上下文时，优先使用本技能查询组织过程资产。"
-version: 3.0.0
+version: 3.1.0
 ---
 
 # MemOps 事态感知总线
