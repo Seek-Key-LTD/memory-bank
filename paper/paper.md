@@ -207,7 +207,7 @@ Anthropic 的 KYC 要求，是试图将"地上的国度"的逻辑投射到"天�
 两个轴的交汇，定义了每个智能体的**宫位**（Constellation Slot）。太阳（核心节点）位居中心，12 宫位按黄道顺序环绕排列：
 
 ```mermaid
-pie title Zodiac Cabinets（黄道内阁）— 12 宫位环绕太阳
+pie title Zodiac Cabinets（黄道内阁）— 12 宫位环绕太阳（各 30°）
     "双鱼座 ♓" : 30
     "白羊座 ♈" : 30
     "金牛座 ♉" : 30
