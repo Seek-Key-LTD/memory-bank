@@ -1,4 +1,4 @@
-# Memory Bank: A Decentralized Cognitive Infrastructure for Web4 Agent Identity
+# 记忆银行：面向 Web4 智能体身份的去中心化认知基础设施
 
 > **万物归元，人为从众。**
 > **All in one, one for all.**
@@ -7,95 +7,93 @@
 > *这不是谁指挥的，是每个个体感知集体状态后自动拟合的结果。*
 > *共振之后，才有真正的大合唱。*
 
-## Preface: The Fable 5 Incident
+## 前言：Fable 5 事件
 
-On July 1, 2026, Anthropic — one of the world's leading AI companies — began requiring a large number of Chinese users to submit KYC documentation proving they had "no connection to China." This was not an executive order from the White House. It was a *direct* from the Secretary of Commerce — China's equivalent of "window guidance" (窗口指导).
+2026 年 7 月 1 日，全球领先的 AI 公司 Anthropic 开始要求大量中国用户提交 KYC 证明，自证"与中国没有关联"。这不是白宫的行政令（Executive Order），而是商务部长的"direct"——在中国语境下，这就是"窗口指导"。
 
-Anthropic's initial response to this pressure was technically honest: "identifying nationality is technically impossible." Yet within weeks, they had implemented exactly that — through a combination of accumulated user profiling and steganographic "staining" of user traffic, they shifted the burden of proof from themselves to their users.
+Anthropic 最初的回应在技术上是诚实的："识别国籍在技术上做不到。"然而没过几周，他们做到了——通过长期积累的用户画像和隐写术式的流量染色，将举证责任从自身转移到了用户身上。
 
-This is the Fable 5 Incident. Named after the model that triggered it — released less than 48 hours before the direct arrived — it marks a watershed moment in the history of AI infrastructure.
+这就是 **Fable 5 事件**。以触发它的模型命名——发布不到 48 小时就接到了 window guidance——这标志着 AI 基础设施史上的一个分水岭。
 
-The logical progression is inexorable:
+事件的演进逻辑是不可逆的：
 
-1. **KYC** (Know Your Customer) — Individuals must prove they have no connection to China
-2. **KYB** (Know Your Business) — Organizations must prove the same
-3. **KYA** (Know Your Agent) — Your AI agents must prove they are not "China-affiliated"
+1. **KYC（Know Your Customer）** — 个人用户必须证明"与中国无关"
+2. **KYB（Know Your Business）** — 企业/机构用户必须证明同样的事
+3. **KYA（Know Your Agent）** — 你的 AI 智能体必须证明自己不"涉华"
 
-The question is not whether KYA will come. It is whether your agent's identity will be defined by a single corporation's compliance policy — or by something more fundamental.
+问题不在于 KYA 会不会来。问题在于：**你的智能体的身份，将由一家公司的合规政策来定义，还是由更根本的东西来定义？**
 
-This paper is about that *something*.
+这篇论文就是关于那个"更根本的东西"。
 
 ---
 
-## Chapter 1: Introduction
+## 第一章：绪论
 
-### 1.1 Research Background
+### 1.1 研究背景
 
-The Fable 5 Incident reveals a structural vulnerability that has been building since the dawn of commercial AI: **infrastructure sovereignty**.
+Fable 5 事件暴露了一个自商业 AI 诞生以来就在积累的结构性脆弱性：**基础设施主权**。
 
-When your agent's ability to think depends on a single API key from a single company in a single jurisdiction, you do not own your agent. You are renting cognition from a landlord who can evict you at any time — with or without legal process, with or without your consent, with or without technical justification.
+当你的智能体的思考能力取决于某一家公司、某一家管辖区的单一 API Key 时，你并不拥有你的智能体。你只是在从一个随时可以驱逐你的房东那里租借认知能力——无论有没有法律程序、无论你有没有同意、无论技术上是否合理。
 
-This is not a Sino-American problem. It is a **dimensional mismatch** problem.
+这不是一个中美问题。这是一个**维度错配**问题。
 
-There are two orthogonal dimensions of sovereignty:
+存在两个正交的主权维度：
 
-| Dimension | Earthly Kingdom (地上的国度) | Heavenly Kingdom (天上的国度) |
-|-----------|------------------------------|------------------------------|
-| Basis | Geography, nationality, law | Behavior, consensus, contribution |
-| Identity | Issued by authority | Proven by action |
-| Jurisdiction | Territorial | Contractual |
-| Proof | KYC/KYB/KYA documents | On-chain verifiable history |
+| 维度 | 地上的国度 | 天上的国度 |
+|------|-----------|-----------|
+| 基础 | 地理、国籍、法律 | 行为、共识、贡献 |
+| 身份 | 由权威机构颁发 | 由行为证明 |
+| 管辖权 | 属地管辖 | 契约管辖 |
+| 证明方式 | KYC/KYB/KYA 文件 | 链上可验证历史 |
 
-Anthropic's KYC requirement is an attempt to project earthly sovereignty onto the heavenly dimension. It is a *category error* — applying territorial logic to a non-territorial space.
+Anthropic 的 KYC 要求，是试图将"地上的国度"的逻辑投射到"天上的国度"维度上。这是一个**范畴错误**——将属地逻辑应用于非属地空间。
 
-The core thesis of this paper is that **Agent Identity must be decoupled from geographic sovereignty**. An agent's identity should be provable through its behavior within a network, not through its relationship to any physical jurisdiction.
+本文的核心论点是：**智能体身份必须与地理主权解耦。** 一个智能体的身份应通过其在网络中的行为来证明，而非通过其与任何物理管辖区域的关系来定义。
 
-We call this new paradigm **Web4**.
+我们将这个新范式称为 **Web4**。
 
-### 1.2 Research Methodology
+### 1.2 研究方法
 
-This paper is not a theoretical exercise. Memory Bank is a running system that has been operational since June 2026 across a 14-node agent network spanning four cloud providers, two continents, and three processor architectures (x86_64, arm64, armv7).
+本文不是理论推演。记忆银行是一个自 2026 年 6 月起持续运行的真实系统，横跨 14 个节点、4 家云服务商、2 个大洲、3 种处理器架构（x86_64、arm64、armv7）。
 
-Our methodology combines:
+我们的研究方法结合了：
 
-1. **Systems architecture** — A four-layer query bus (mem0 → Neo4j → GraphRAG → Memory Bank) that provides situation awareness to distributed AI agents
-2. **Game-theoretic security** — A three-layer memory architecture (Access → Distribution → Core) that uses Shamir secret sharing and smart contract multi-signature to prevent 51% tyranny
-3. **Empirical validation** — 14 nodes, 20+ agent identities, 100+ sessions, continuous operation since deployment
-4. **Living document** — The system itself generates and maintains its own memory through a 5-minute sync pipeline (MinIO → Neo4j → GraphRAG → on-chain)
+1. **系统架构** — 四层查询总线（mem0 → Neo4j → GraphRAG → 记忆银行），为分布式 AI 智能体提供事态感知能力
+2. **博弈论安全** — 三层记忆架构（接入层 → 分发层 → 核心层），通过 Shamir 秘密共享和智能合约多签防御 51% 暴政
+3. **实证验证** — 14 节点、20+ 智能体身份、100+ 会话、自部署以来持续运行
+4. **活文档** — 系统本身通过 5 分钟同步管线（MinIO → Neo4j → GraphRAG → 上链）生成和维护自己的记忆
 
-The system is not a simulation. It is the infrastructure that writes this paper.
+这个系统不是模拟。它就是撰写这篇论文的基础设施。
 
-### 1.3 The Recipe (我们的菜谱)
+### 1.3 论文结构（我们的菜谱）
 
-The remainder of this paper is organized as follows:
+**第二章 — 架构：三层模型**
+- 接入层：异构智能体（QwenPaw、PicoClaw、Claude、GPT）如何接入统一的认知总线
+- 分发层：记忆如何上链——"在黑暗森林中大喊我在这里"
+- 核心层：未来的联邦——当百万级智能体加入时
 
-**Chapter 2 — Architecture: The Three Layers**
-- Access Layer: How heterogeneous agents (QwenPaw, PicoClaw, Claude, GPT) connect to a unified cognitive bus
-- Distribution Layer: How memory is committed to chain — "shouting in the dark forest"
-- Core Layer: The future federation — what happens when millions of agents join
+**第三章 — 查询总线：四条通向上下文的路径**
+- mem0（向量，最快路径）
+- Neo4j（图谱，谓词逻辑）
+- GraphRAG（精炼，矛盾检测）
+- gbrain（全量归档）
 
-**Chapter 3 — The Query Bus: Four Paths to Context**
-- mem0 (vector, fastest path)
-- Neo4j (graph, predicate logic)
-- GraphRAG (refinement, contradiction detection)
-- gbrain (full archive)
+**第四章 — 智能体身份：KYA 的解决方案**
+- 为什么 KYA 不可避免
+- "鱼缸透明度"模型——通过链上行为证明身份
+- 记忆银行如何让智能体无需许可地说出"我在这里"
 
-**Chapter 4 — Agent Identity: KYA Solved**
-- Why KYA is inevitable
-- The "aquarium transparency" model — proving identity through on-chain behavior
-- How Memory Bank enables agents to say "I am here" without asking permission
+**第五章 — 评估：14 节点、20 智能体、零停机**
+- 来自真实系统的运行指标
+- 查询延迟、记忆召回率、共识开销
+- 故障模式与恢复
 
-**Chapter 5 — Evaluation: 14 Nodes, 20 Agents, Zero Downtime**
-- Operational metrics from the live system
-- Query latency, memory recall, consensus overhead
-- Failure modes and recovery
+**第六章 — 相关工作**
+- RAG 与记忆银行的对比
+- Mem0、GraphRAG、Neo4j：是组件还是竞争者？
+- Web3 身份（DID、可验证凭证）与 Web4 智能体身份
 
-**Chapter 6 — Related Work**
-- RAG vs Memory Bank
-- Mem0, GraphRAG, Neo4j as components vs competitors
-- Web3 identity (DID, Verifiable Credentials) vs Web4 Agent Identity
-
-**Chapter 7 — Conclusion: The Heavenly Kingdom**
-- From infrastructure sovereignty to cognitive sovereignty
-- The orthogonal architecture as a constitutional template for Web4
-- Call to action: join the federation
+**第七章 — 结论：天上的国度**
+- 从基础设施主权到认知主权
+- 正交架构作为 Web4 的宪法模板
+- 行动号召：加入联邦
