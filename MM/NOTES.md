@@ -262,3 +262,55 @@ n8n 比 GitLab Duo 牛逼的地方：
 - [ ] 第二波：小水管（Coinbase CDP）对接
 - [ ] n8n 技能文档（MCP 调用方式）
 - [ ] 三点思考记录（待第三点）
+
+---
+
+## 2026-07-09 — Unified Context Pipeline (Extraction_Raw)
+
+### 目标
+
+将所有 agent 的聊天上下文从 MongoDB `agent_sessions` 统一提取、清洗、归集到 `Extraction_Raw` collection，作为 MemoryBank-AccessLayer 的数据源底座。
+
+### n8n Workflow: Unified Context — Extraction_Raw
+
+**ID:** `4l3PJZIy0doGUci3`
+**Trigger:** `POST https://n8n.capitaltrain.cn/webhook/extraction-raw-v2`
+**Pipeline:**
+
+```
+Webhook
+  → MongoDB Find (agent_sessions, messageCount > 2)
+  → Code (清洗)
+  → MongoDB Insert (Extraction_Raw, fields 白名单)
+```
+
+**清洗规则 (Code node):**
+- 移除 `role: system` 的系统提示消息
+- 移除空内容 (content 为空或纯空白)
+- 正则剥离控制标签：`<system-reminder>`, `<command-name>`, `<local-command-stdout>`
+- 只保留清洗后仍有内容的 session
+
+**输出字段白名单:** `sessionId, agent, originalCount, cleanedCount, extractionVersion, messages, extractedAt`
+
+### 运行结果（首次触发）
+
+- 提取 225 条清洗后会话
+- 原始消息 44,928 → 清洗后 33,872（移除率 ~25%）
+- 覆盖 10 个 agent：amber, ash3c, ch4, de, emerald, mini, nuc, onecloud1, onecloud2, raccoon
+- 残留系统消息: 0，残留控制标签: 0
+
+### 关键发现 — MongoDB Insert `fields` 参数
+
+n8n MongoDB Insert 节点的 `fields` 参数类型为 `string`，语义是**逗号分隔的字段名白名单**，而非 JSON 表达式：
+
+- ❌ `fields: ""` → 插入空文档（仅有 `_id`）
+- ❌ `fields: "={{ $json }}"` → 运行时 crash（`fields.split is not a function`）
+- ❌ `fields: "*"` → 将 `*` 作为字段名写入 `{"*": null}`
+- ✅ `fields: "sessionId,agent,messages"` → 只写入白名单字段
+
+### 注意事项
+
+1. **MongoDB Clear 节点破坏 pipeline**：在 Webhook 和 MongoDB Find 之间插入 Delete 节点会导致 Find 返回 0 结果。原因不明，疑似 n8n 节点链中下游节点依赖上游输出格式。
+2. **PUT 更新导致 webhook 失效**：对已激活 workflow 做 PUT 更新后，即使 deactivate/reactivate，首次触发总返回 0 文档。第二次触发才正常。推荐：重大变更直接 POST 创建新 workflow，删除旧 workflow，避免 PUT 缓存问题。
+3. **Execution API 限制**：`GET /api/v1/executions/{id}` 只返回 metadata，不含 resultData。完整执行数据需通过 REST API (`/rest/executions/`) 用 cookie auth 获取。
+4. **MCP Server 存在但只有文档/验证工具**：`mcp-n8n.capitaltrain.cn` 的 MCP server 只提供 `tools/list`, `get_node_info`, `validate_workflow` 等文档工具，不含 workflow CRUD。创建/更新 workflow 直接调用 `/api/v1/workflows`。
