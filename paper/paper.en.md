@@ -1,5 +1,10 @@
 # Memory Bank: A Decentralized Cognitive Infrastructure for Web4 Agent Identity
 
+## MoE² — Mixed Expert of Mixed Experts
+
+**Fengshen Bang (Deity Registry) Overlay Dispatch + Zodiac Federation + Nicaea Consensus + Persistent Memory Bank**
+*In an era of isolated MoE silos, building a cross-vendor, cross-architecture, cross-ecosystem cognitive bus for LLM federation.*
+
 > **万物归元，人为从众。**
 > **All in one, one for all.**
 >

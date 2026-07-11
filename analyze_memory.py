@@ -7,11 +7,11 @@ from datetime import datetime
 from minio import Minio
 from neo4j import GraphDatabase
 
-MINIO_EP = os.getenv("MINIO_EP", "nuc.tailnet-68f9.ts.net:9000")
-MINIO_KEY = os.getenv("MINIO_KEY", "houzhongxu")
-MINIO_SECRET = os.getenv("MINIO_SECRET", "ccie15544")
+MINIO_EP = os.getenv("MINIO_EP", "localhost:9000")
+MINIO_KEY = os.getenv("MINIO_KEY", "")
+MINIO_SECRET = os.getenv("MINIO_SECRET", "")
 MINIO_BUCKET = os.getenv("MINIO_BUCKET", "agents")
-NEO4J_URI = os.getenv("NEO4J_URI", "bolt://100.116.169.46:7687")
+NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 
 mc = Minio(MINIO_EP, MINIO_KEY, MINIO_SECRET, secure=False)
 neo4j = GraphDatabase.driver(NEO4J_URI)

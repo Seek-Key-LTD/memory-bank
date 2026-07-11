@@ -30,7 +30,7 @@ Schedule (每5分钟)
 
 ✅ `response_format: json_object` 支持
 ✅ 无 reasoning_content 干扰
-✅ API key: `sk-47318`
+✅ API key: 环境变量注入
 
 ## 对比结果（2026-06-27 更新）
 
