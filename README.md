@@ -39,7 +39,8 @@ mem-ops/
 │   ├── paper3-cognitive-field.md      # P3: 认知场与四层查询总线
 │   ├── paper4-memory-economics.md     # P4: 记忆货币银行学
 │   ├── paper5-game-theory-security.md # P5: 博弈论安全模型
-│   └── paper6-situation-awareness.md  # P6: 事态感知 / 马尔可夫链
+│   ├── paper6-situation-awareness.md  # P6: 事态感知 / 马尔可夫链
+│   └── paper7-soul-swapping.md       # P7: 灵魂迁移 / 换头术 / 生死簿
 │
 ├── agents/                # 16 个 Agent 配置（Zodiac Cabinets）
 │   ├── agate/             # 玛瑙 — 文档与本地化
@@ -138,7 +139,7 @@ mem-ops/
 
 ## 论文集
 
-本项目的学术贡献以 6 篇垂直论文的形式呈现，每篇聚焦一个独立的技术论点：
+本项目的学术贡献以 7 篇垂直论文的形式呈现，每篇聚焦一个独立的技术论点：
 
 | # | 论文 | 核心贡献 |
 |---|------|---------|
@@ -148,6 +149,7 @@ mem-ops/
 | P4 | [记忆的货币银行学](paper/paper4-memory-economics.md) | M1/M2/NFT + 激进开源 + DAG 流转 |
 | P5 | [博弈论安全模型](paper/paper5-game-theory-security.md) | Shamir 5-of-12 + 诱饵分片 + 密钥轮转弹性 |
 | P6 | [事态感知与马尔可夫链](paper/paper6-situation-awareness.md) | HMM 前摄注入 + Tiki-Taka vs 长传冲吊 |
+| P7 | [灵魂迁移：跨框架智能体身份移植协议](paper/paper7-soul-swapping.md) | 换头术 + MML 灵魂格式 + 生死簿模型 |
 
 ---
 
