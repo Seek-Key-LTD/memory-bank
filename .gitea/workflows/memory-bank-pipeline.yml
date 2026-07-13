@@ -6,7 +6,7 @@ on:
 
 jobs:
   run-demo-pipeline:
-    runs-on: host
+    runs-on: linux:host
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
