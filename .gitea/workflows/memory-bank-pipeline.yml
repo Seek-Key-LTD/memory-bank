@@ -6,13 +6,7 @@ on:
 
 jobs:
   run-demo-pipeline:
-    runs-on: arm64
+    runs-on: ash3c
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Set up executable permission
-        run: chmod +x ./demo_memory_bank.py
-
       - name: Execute Pipeline Demonstration (Access -> Aggregation -> Core)
-        run: python3 ./demo_memory_bank.py
+        run: python3 /opt/mem-ops/demo_memory_bank.py
