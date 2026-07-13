@@ -66,9 +66,10 @@ def run_demo():
     
     # ----------------- STAGE 1: ACCESS LAYER (接入层) -----------------
     print("\n[Stage 1/3] >>> ACCESS LAYER (接入层) 校验中...")
-    agents_dir = "agents"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    agents_dir = os.path.join(script_dir, "agents")
     if not os.path.exists(agents_dir):
-        print(f"❌ Error: Cannot find '{agents_dir}' directory. Please run this script in the repository root.")
+        print(f"❌ Error: Cannot find '{agents_dir}' directory.")
         sys.exit(1)
         
     agents = [d for d in os.listdir(agents_dir) if os.path.isdir(os.path.join(agents_dir, d))]
