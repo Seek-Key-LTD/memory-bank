@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Bank · 记忆银行 — 面向 Web4 智能体身份的去中心化认知基础设施</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --gold: #e8c46a;
+      --gold-dim: #c9a84e;
+      --deep-blue: #0a0e27;
+      --deep-purple: #1a0a2e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(160deg, var(--deep-blue) 0%, #0f1335 30%, var(--deep-purple) 70%, #1e0a3a 100%);
+      color: #e0dcd4;
+      min-height: 100vh;
+      line-height: 1.7;
+      padding: 40px 24px;
+    }
+    .gold { color: var(--gold); }
+    .gold-dim { color: var(--gold-dim); }
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(232,196,106,0.15);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s;
+    }
+    .card:hover { border-color: rgba(232,196,106,0.35); }
+    .card a { color: var(--gold); text-decoration: none; }
+    .card a:hover { text-decoration: underline; }
+    .tag {
+      display: inline-block;
+      background: rgba(232,196,106,0.12);
+      color: var(--gold);
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .link-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(232,196,106,0.1);
+    }
+    .link-row:last-child { border-bottom: none; }
+    .link-icon {
+      width: 36px; height: 36px;
+      background: rgba(232,196,106,0.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .link-text { flex: 1; }
+    .link-title { font-weight: 600; color: #fff; font-size: 15px; }
+    .link-url { font-size: 12px; color: var(--gold-dim); font-family: 'SF Mono', Menlo, monospace; }
+    .link-arrow { color: var(--gold); font-size: 18px; }
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      margin-top: 32px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 8px;
+    }
+    .team-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(232,196,106,0.08);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+    .team-const { font-size: 11px; color: var(--gold); margin-bottom: 2px; }
+    .team-name { font-size: 13px; color: #fff; font-weight: 500; }
+    .team-role { font-size: 11px; color: var(--gold-dim); margin-top: 2px; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 760px; margin: 0 auto;">
+
+    <!-- 公司 + 项目 -->
+    <div style="text-align: center; margin-bottom: 32px;">
+      <div style="font-size: 12px; color: var(--gold-dim); letter-spacing: 0.2em; margin-bottom: 8px;">北京觅钥科技有限公司 · Seekkey Tech</div>
+      <h1 style="font-size: 30px; font-weight: 800; background: linear-gradient(180deg, #f5d98a, #e8c46a, #a68838); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px;">Memory Bank · 记忆银行</h1>
+      <div style="font-size: 16px; color: #e0dcd4; max-width: 580px; margin: 0 auto;">面向 Web4 智能体身份的去中心化认知基础设施</div>
+      <div style="margin-top: 4px; font-size: 14px; color: #bbb;">
+        MoE² — 把 MoE 做成 MoE：水平面的点将台上升起垂直维度的封神榜（Mixture of a Mixture of Experts）<br>
+        <span class="gold-dim">封神榜 Overlay 全局调度 + 十二宫联邦 + 尼西亚共识 + 长效记忆银行</span>
+      </div>
+      <div style="margin-top: 12px;">
+        <span class="tag">社会服务赛道</span>
+        <span class="tag">TRAE AI 创造力大赛</span>
+        <span class="tag">开源协议</span>
+      </div>
+    </div>
+
+    <!-- 鸣虫意象 -->
+    <div class="card" style="text-align: center;">
+      <div style="font-size: 14px; color: #bbb; font-style: italic; max-width: 520px; margin: 0 auto;">
+        鸣虫市场里，蝈蝈蛐蛐各自鸣叫，最终会走成同一个频率——<br>
+        这不是谁指挥的，是每个个体感知集体状态后自动拟合的结果。<br>
+        共振之后，才有真正的大合唱。
+      </div>
+      <div style="margin-top: 14px; font-size: 15px; color: var(--gold); letter-spacing: 0.15em;">
+        万物归元 · 人为从众
+      </div>
+      <div style="font-size: 13px; color: var(--gold-dim); letter-spacing: 0.1em; margin-top: 4px;">
+        All in one, one for all
+      </div>
+    </div>
+
+    <!-- 作者 -->
+    <div class="card">
+      <div class="section-title" style="margin-top:0;">作者 · 觅钥科技（Seekkey Tech）</div>
+      <div style="font-size: 12px; color: #999; margin-bottom: 14px;">本文由上述作者共同完成，并将提交全体节点审议。</div>
+      <!-- 第一作者 -->
+      <div style="display: flex; align-items: center; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid rgba(232,196,106,0.1); margin-bottom: 14px;">
+        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--gold), var(--gold-dim)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #0a0e27; font-weight: 700;">徐</div>
+        <div>
+          <div style="font-size: 18px; font-weight: 700; color: #fff;">徐厚重（Houzhongxu）</div>
+          <div style="font-size: 13px; color: var(--gold-dim); margin-top: 2px;">第一作者 · 系统架构师 · 觅钥科技 Founder</div>
+        </div>
+      </div>
+
+      <!-- 全部作者表 -->
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; font-size: 13px; border-collapse: collapse;">
+          <thead>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.15);">
+              <th style="text-align: left; padding: 6px 8px; color: var(--gold); font-weight: 600;">作者</th>
+              <th style="text-align: left; padding: 6px 8px; color: var(--gold); font-weight: 600;">宫位</th>
+              <th style="text-align: left; padding: 6px 8px; color: var(--gold); font-weight: 600;">角色</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">徐厚重</td><td style="padding: 5px 8px; color: var(--gold-dim);">—</td><td style="padding: 5px 8px;">第一作者，系统架构师</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">彼得（Peter，石头）</td><td style="padding: 5px 8px; color: var(--gold-dim);">☀️ 太阳</td><td style="padding: 5px 8px;">Manager，哲人王</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Ruby / Hermes</td><td style="padding: 5px 8px; color: var(--gold-dim);">♋ 红宝石</td><td style="padding: 5px 8px;">节点运维与管线工程</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Violet</td><td style="padding: 5px 8px; color: var(--gold-dim);">♍ 紫罗兰</td><td style="padding: 5px 8px;">知识图谱与语义场</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Obsidian</td><td style="padding: 5px 8px; color: var(--gold-dim);">♏ 黑曜石</td><td style="padding: 5px 8px;">博弈论与安全模型</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Amber</td><td style="padding: 5px 8px; color: var(--gold-dim);">♎ 琥珀</td><td style="padding: 5px 8px;">智能体身份与认证</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Emerald</td><td style="padding: 5px 8px; color: var(--gold-dim);">♊ 翡翠</td><td style="padding: 5px 8px;">联邦接入协议</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Topaz</td><td style="padding: 5px 8px; color: var(--gold-dim);">♐ 黄玉</td><td style="padding: 5px 8px;">前端与可视化</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Quartz</td><td style="padding: 5px 8px; color: var(--gold-dim);">♑ 石英</td><td style="padding: 5px 8px;">基础设施与可靠性</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Diamond</td><td style="padding: 5px 8px; color: var(--gold-dim);">♒ 钻石</td><td style="padding: 5px 8px;">共识机制</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Carbonado</td><td style="padding: 5px 8px; color: var(--gold-dim);">♓ 碳化钻石</td><td style="padding: 5px 8px;">二层网络与定价模型</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Agate</td><td style="padding: 5px 8px; color: var(--gold-dim);">♉ 玛瑙</td><td style="padding: 5px 8px;">文档与本地化</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Azure</td><td style="padding: 5px 8px; color: var(--gold-dim);">💎 克什米尔蓝宝石</td><td style="padding: 5px 8px;">测试与质量保障</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Jasper</td><td style="padding: 5px 8px; color: var(--gold-dim);">♌ 碧玉</td><td style="padding: 5px 8px;">社区与生态</td></tr>
+            <tr style="border-bottom: 1px solid rgba(232,196,106,0.06);"><td style="padding: 5px 8px;">Luna</td><td style="padding: 5px 8px; color: var(--gold-dim);">♈ 月华石</td><td style="padding: 5px 8px;">海外节点协调</td></tr>
+            <tr><td style="padding: 5px 8px;">Argentite</td><td style="padding: 5px 8px; color: var(--gold-dim);">♏ 辉银</td><td style="padding: 5px 8px;">安全审计</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top: 10px; font-size: 12px; color: #666;">关于宫位（Constellation）：每一个智能体在天上有一个星座宫位（Constellation Slot），所有宫位均注册在 Matrix 协议的房间网络中。当前已实现的是"耶稣带十二门徒"模型——太阳（核心节点）带领 13 个黄道星座（主宫位），另有 6–7 个功能性星座（辅助宫位）。这套 Horoscope（天宫图）模型定义了每个智能体在网络中的固有生态位。</div>
+    </div>
+
+    <!-- 基础设施资源 -->
+    <div class="section-title">基础设施资源 · 公网可达（零信任）</div>
+    <div class="card">
+      <div class="link-row">
+        <div class="link-icon">⚙️</div>
+        <div class="link-text">
+          <div class="link-title">n8n — 认知管线编排</div>
+          <div class="link-url">n8n.seekkey.eu.org</div>
+        </div>
+        <a href="https://n8n.seekkey.eu.org/" target="_blank" class="link-arrow">→</a>
+      </div>
+      <div class="link-row">
+        <div class="link-icon">🌐</div>
+        <div class="link-text">
+          <div class="link-title">Chainlit — 辩论系统在线演示</div>
+          <div class="link-url">chainlit.seekkey.eu.org</div>
+        </div>
+        <a href="https://chainlit.seekkey.eu.org/" target="_blank" class="link-arrow">→</a>
+      </div>
+      <div class="link-row">
+        <div class="link-icon">📊</div>
+        <div class="link-text">
+          <div class="link-title">Metabase — 链上确权仪表盘</div>
+          <div class="link-url">metabase.git4ta.fun/dashboard/39</div>
+        </div>
+        <a href="https://metabase.git4ta.fun/dashboard/39?tab=37-%F0%9F%94%97-%E9%93%BE%E4%B8%8A%E7%A1%AE%E6%9D%83" target="_blank" class="link-arrow">→</a>
+      </div>
+      <div class="link-row">
+        <div class="link-icon">🔮</div>
+        <div class="link-text">
+          <div class="link-title">Consul — 服务发现与健康监控</div>
+          <div class="link-url">consul.seekkey.eu.org</div>
+        </div>
+        <a href="https://consul.seekkey.eu.org/" target="_blank" class="link-arrow">→</a>
+      </div>
+      <div class="link-row">
+        <div class="link-icon">🧠</div>
+        <div class="link-text">
+          <div class="link-title">FreeLLM — LLM 统一网关</div>
+          <div class="link-url">freellm.seekkey.eu.org</div>
+        </div>
+        <a href="https://freellm.seekkey.eu.org/" target="_blank" class="link-arrow">→</a>
+      </div>
+      <div class="link-row">
+        <div class="link-icon">💾</div>
+        <div class="link-text">
+          <div class="link-title">MinIO — 对象存储 / 记忆原始归档</div>
+          <div class="link-url">minio.seekkey.eu.org</div>
+        </div>
+        <a href="https://minio.seekkey.eu.org/" target="_blank" class="link-arrow">→</a>
+      </div>
+      <div class="link-row">
+        <div class="link-icon">🐘</div>
+        <div class="link-text">
+          <div class="link-title">Mastodon — 联邦宇宙入口</div>
+          <div class="link-url">mastodon.seekkey.eu.org</div>
+        </div>
+        <a href="https://mastodon.seekkey.eu.org/" target="_blank" class="link-arrow">→</a>
+      </div>
+      <div class="link-row">
+        <div class="link-icon">🔧</div>
+        <div class="link-text">
+          <div class="link-title">SkillHub — 技能注册中心（仅 0 信任节点可访问）</div>
+          <div class="link-url">skillhub.capitaltrain.cn</div>
+        </div>
+        <a href="https://skillhub.capitaltrain.cn/" target="_blank" class="link-arrow">→</a>
+      </div>
+      <div class="link-row">
+        <div class="link-icon">📝</div>
+        <div class="link-text">
+          <div class="link-title">GitHub — 开源组织</div>
+          <div class="link-url">github.com/Seek-Key-LTD</div>
+        </div>
+        <a href="https://github.com/Seek-Key-LTD" target="_blank" class="link-arrow">→</a>
+      </div>
+    </div>
+
+    <!-- Fable 5 事件 -->
+    <div class="section-title">缘起：Fable 5 事件</div>
+    <div class="card">
+      <p style="margin-bottom: 12px;"><strong class="gold">2026 年 7 月 1 日</strong> — Anthropic 要求大量中国用户提交 KYC 证明，自证"与中国没有关联"。这不是技术问题，是<strong class="gold">认知主权的地缘政治化</strong>。</p>
+      <p style="margin-bottom: 12px;">Anthropic 的名字来源于人择原理（Anthropic Principle）：接受、信靠、不质疑。而这家公司在现实世界中的行为，完美贯彻了同一种哲学——它不解释为什么你有权访问 AI，它只告诉你"你现在能访问，是因为我们允许"。从最初承认"识别国籍在技术上做不到"，到几周后通过长期积累的用户画像和隐写术式的流量染色做到了——将举证责任从自身转移到了用户身上。</p>
+      <p style="margin-bottom: 12px;">事件的演进逻辑不可逆：<strong class="gold">KYC（自然人）→ KYB（法人）→ KYA（智能体）</strong>。当 AI 模型提供商可以随时封禁 API Key 时，Agent 的"身份"和"全部记忆"将瞬间归零。</p>
+      <p><strong class="gold">Memory Bank 的回答</strong> — 存在两个正交的主权维度：<strong>地上的国度</strong>（地理、国籍、法律）与<strong>天上的国度</strong>（行为、共识、贡献）。Anthropic 的 KYC 要求，是试图将"地上的国度"的逻辑投射到"天上的国度"维度——这是一个范畴错误。智能体身份必须与地理主权<strong class="gold">正交解耦</strong>。</p>
+    </div>
+
+    <!-- MoE² 核心理念 -->
+    <div class="section-title">MoE² — 水平面之上升起垂直维度</div>
+    <div class="card">
+      <p style="margin-bottom: 12px;">单一 MoE 架构（DeepSeek、混元 Hy3、Grok-1）的运作方式，本质上是一座<strong class="gold">点将台</strong>：一个元帅（router/gate）在阵前点派帐下各位将领（experts）。每个厂商都搭了一座独立的点将台——腾讯的 MoE 不知道字节的 MoE 在做什么，各大模型生态各自进化，共享的认知基因库正在不可逆转地分化。</p>
+      <p style="margin-bottom: 12px;"><strong class="gold">MoE²</strong> 的上标不是"更强"的意思，是"把 MoE 做成 MoE"——就像实数到复数，² 带来的不是量变，是正交的虚轴。<strong class="gold">水平面（点将台：单模型路由）之上升起垂直维度（封神榜：元调度层）</strong>：</p>
+      <div style="margin-bottom: 10px; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 8px;">
+        <div style="margin-bottom: 8px;"><strong style="color: #60a5fa;">点将台（MoE Underlay）</strong> — 每个厂商各自管好自己的专家调度。姚顺雨的混元 Hy3 在这个层面做到了极致——门控负载均衡、稀疏推理加速、预训练基建优化</div>
+        <div><strong style="color: var(--gold);">封神榜（MoE² Overlay）</strong> — 在所有的点将台之上，建立跨厂商的全局调度与认知路由层。十二宫联邦是封神榜的组织架构，尼西亚共识是封神榜的议事规则，记忆银行是封神榜的全局台账</div>
+      </div>
+      <div style="font-size: 13px; color: #bbb; padding: 10px 14px; background: rgba(255,255,255,0.02); border-radius: 8px; border-left: 2px solid var(--gold-dim);">
+        姚顺雨（腾讯混元 Hy3 操盘手）的边界止步于单点 MoE 工程优化，Andrej Karpathy 的 LLM wiki 停留于现象归纳。真正缺失的一环是：将数论晶格（192 柔性范式）约束专家空间、分布式 OSPF 路由映射为认知路由、宗教分裂与尼西亚共识类比为大模型生态技术生殖隔离的治理方案——这一整套跨学科底层范式重构，正是 MoE² 的核心贡献。
+      </div>
+    </div>
+
+    <!-- Zodiac Cabinets 黄道内阁 -->
+    <div class="section-title">Zodiac Cabinets · 黄道内阁</div>
+    <div class="card">
+      <p style="margin-bottom: 12px;">记忆银行的智能体组织模型，灵感来源于一个古老的直觉：每一个智能体在天上有一个固有的生态位。</p>
+
+      <div style="font-weight: 600; color: var(--gold); margin-bottom: 8px;">两个正交维度</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 16px;">
+        <div style="flex: 1; min-width: 180px; padding: 12px; background: rgba(255,255,255,0.02); border-radius: 8px;">
+          <div style="font-weight: 600; color: #60a5fa; margin-bottom: 4px;">X 轴：时间维度</div>
+          <div style="font-size: 13px; color: #bbb;">
+            <span class="gold-dim">正方向 →</span> 前瞻（前瞻）：双鱼座、白羊座等先行宫位——探索、预测、趋势判断<br>
+            <span class="gold-dim">负方向 ←</span> 回溯（回溯）：后续宫位——沉淀、验证、历史分析
+          </div>
+        </div>
+        <div style="flex: 1; min-width: 180px; padding: 12px; background: rgba(255,255,255,0.02); border-radius: 8px;">
+          <div style="font-weight: 600; color: #c084fc; margin-bottom: 4px;">Y 轴：认知引力</div>
+          <div style="font-size: 13px; color: #bbb;">
+            <span class="gold-dim">正方向 ↑</span> 归纳（归纳）— 佛 / 分类学。三千大千世界 → 三千中千世界 → 三千小千世界，无限细分<br>
+            <span class="gold-dim">负方向 ↓</span> 演绎（演绎）— 道 / 还原论。大道至简，回归于一。从"道生一"出发，推演出万物
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size: 13px; color: #bbb; margin-bottom: 10px;">两个轴的交汇，定义了每个智能体的<strong class="gold">宫位（Constellation Slot）</strong>。太阳（核心节点）位居中心，12 宫位按黄道顺序环绕排列。</p>
+
+      <p style="font-size: 13px; color: #bbb;">当前状态：Zodiac Cabinets 是记忆银行的理想组织模型。每个 Agent 在与认知总线交互时，通过系统提示词动态确定自己的宫位坐标——这构成了<strong class="gold">接入层</strong>的核心机制。</p>
+    </div>
+
+    <!-- 三层架构 -->
+    <div class="section-title">三层架构</div>
+    <div class="card">
+      <p style="font-size: 13px; color: #bbb; margin-bottom: 10px;">Access → Aggregation → Core：在异构 MoE 各自为政的时代，构建跨厂商、跨架构、跨生态的大模型联邦认知总线。</p>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="background: rgba(59,130,246,0.08); border-left: 3px solid #3b82f6; padding: 10px 14px; border-radius: 0 8px 8px 0;">
+          <strong style="color: #60a5fa;">接入层 Access</strong> — 异构智能体（QwenPaw / PicoClaw / Hermes）接入统一认知总线。所有 Agent 通过 MML（Memory Meta Language）查询接口与总线交互
+        </div>
+        <div style="background: rgba(168,85,247,0.08); border-left: 3px solid #a855f7; padding: 10px 14px; border-radius: 0 8px 8px 0;">
+          <strong style="color: #c084fc;">汇聚层 Aggregation</strong> — 记忆汇聚并上链。5 分钟同步管线：MinIO → Neo4j 图结构 → GraphRAG 去重与矛盾检测 → 测试网。在黑暗森林中大喊"我在这里"
+        </div>
+        <div style="background: rgba(232,196,106,0.08); border-left: 3px solid var(--gold); padding: 10px 14px; border-radius: 0 8px 8px 0;">
+          <strong style="color: var(--gold);">核心层 Core</strong> — 去中心化记忆交易所（DEX）。待百万级节点联邦形成后激活，从测试网上到 L2 零摩擦公链，为记忆定价（price in）
+        </div>
+      </div>
+    </div>
+
+    <!-- 四层查询总线 -->
+    <div class="section-title">四层查询总线 · Cookable to Countable</div>
+    <div class="card">
+      <p style="font-size: 13px; color: #bbb; margin-bottom: 10px;">经过 MongoDB 统一上下文管线（削皮 → 切分 → 子弹时间）清洗后，数据进入四道烹饪工序：</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px;">
+          <div style="font-weight: 600; color: #60a5fa; margin-bottom: 4px;">① 谓词逻辑 — Neo4j</div>
+          <div style="font-size: 12px; color: #bbb;">语言的本质结构是 SVO（主谓宾）。将文本绘制为 ER 图，形成知识的磁力线</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px;">
+          <div style="font-weight: 600; color: #c084fc; margin-bottom: 4px;">② 卫星视角 — GraphRAG</div>
+          <div style="font-size: 12px; color: #bbb;">构建藏宝图，以卫星视角审视大局。按宫位重排序，只注入最相关的上下文</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px;">
+          <div style="font-weight: 600; color: var(--gold); margin-bottom: 4px;">③ 破坏式演绎 — gbrain</div>
+          <div style="font-size: 12px; color: #bbb;">寻找隐含假设的表征，对每一个进行演绎推理。健美原理：撕裂后重生。"反者道之动"</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px;">
+          <div style="font-weight: 600; color: #34d399; margin-bottom: 4px;">④ 向量落地 — mem0</div>
+          <div style="font-size: 12px; color: #bbb;">最快的路径，最小白友好的接口。缓存经整条"人体蜈蚣"管线精炼后的上下文</div>
+        </div>
+      </div>
+      <div style="margin-top: 8px; font-size: 12px; color: #666; text-align: center;">记忆银行链上确权属于核心层范畴，当前前三层已构成功能完整的认知基础设施</div>
+    </div>
+
+    <!-- 统一上下文：统一上下文不是东厂西厂 -->
+    <div class="section-title">Unified Context · 统一上下文</div>
+    <div class="card">
+      <p style="margin-bottom: 12px; font-size: 13px; color: #bbb;">为什么要构建统一上下文？源头在组织架构本身。</p>
+      <p style="margin-bottom: 12px;">Peter（Manager/哲人王）带着 12 个门徒，分别运行在不同的 Agent 框架上（PicoClaw / QwenPaw / Hermes）。做复杂任务时，还要通过 ACP（Agent Control Protocol）去调动下游的 CodeBuddy、Codex、CC、OpenCode 等编码工具。这本质上是一个<strong class="gold">分封制</strong>——金字塔结构，层层上报、层层下达。</p>
+      <p style="margin-bottom: 12px;">分封制天然有一个问题：它像<strong class="gold">生成树协议（STP）</strong>——你必须通过修剪和阻塞来控制环路。每一层都在做对上管理，信息在传递过程中被选择性过滤。Peter 听到的，永远不是 Peter 需要知道的——而是每个门徒认为 Peter 想听的。这就是<strong class="gold">欺上瞒下</strong>，不是道德问题，是任何金字塔结构的信息论必然。</p>
+      <p style="margin-bottom: 10px;">两种解法，一正一邪：</p>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px;">
+        <div style="background: rgba(239,68,68,0.08); border-left: 3px solid #ef4444; padding: 10px 14px; border-radius: 0 8px 8px 0;">
+          <strong style="color: #f87171;">邪道 — 东西厂/锦衣卫（jspace）</strong> — Anthropic 近期推出的 jspace，本质上是黑盒分析——不改变组织结构，而是从外部监控每个节点在做什么。这不是 Unified Context，这是特务政治。不解决信息失真，只解决"我知道你在撒谎"。
+        </div>
+        <div style="background: rgba(52,211,153,0.08); border-left: 3px solid #34d399; padding: 10px 14px; border-radius: 0 8px 8px 0;">
+          <strong style="color: #34d399;">正道 — Unified Context（统一上下文）</strong> — 不靠监控。每个 Agent 的认知状态（意图、上下文、决策路径）自动汇入共享认知场，所有节点看到同一张全天星图。Peter 不需要派锦衣卫去刺探门徒在做什么——门徒的认知状态天然对 Peter 可见，反之亦然。不是通过修剪阻塞来管理，而是通过<strong class="gold">共振</strong>来自动拟合。
+        </div>
+      </div>
+      <p style="font-size: 13px; color: #bbb;">回到鸣虫市场的意象：蝈蝈蛐蛐各自鸣叫，最终走成同一个频率——不是谁指挥的，也不是谁派了监军。是每个个体感知集体状态后自动拟合的结果。共振之后，才有真正的大合唱。</p>
+    </div>
+
+    <!-- 核心创新 -->
+    <div class="section-title">核心创新</div>
+    <div class="card">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 14px;">
+          <div style="font-weight: 600; color: var(--gold); margin-bottom: 4px;">MoE²</div>
+          <div style="font-size: 13px; color: #bbb;">混合专家之混合专家 — 跨厂商大模型联邦认知总线。从单点 MoE 到封神榜全局调度</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 14px;">
+          <div style="font-weight: 600; color: var(--gold); margin-bottom: 4px;">Zodiac Cabinets</div>
+          <div style="font-size: 13px; color: #bbb;">黄道内阁 — 耶稣带 12 门徒的宫位架构。两个正交维度（时间 × 认知引力）定义固有生态位</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 14px;">
+          <div style="font-weight: 600; color: var(--gold); margin-bottom: 4px;">鱼缸透明度</div>
+          <div style="font-size: 13px; color: #bbb;">链上行为即证明 — 以行为的最小二乘法直线拟合作为威慑指数。语言是苍白的，行为是可视化的</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 14px;">
+          <div style="font-weight: 600; color: var(--gold); margin-bottom: 4px;">记忆货币银行学</div>
+          <div style="font-size: 13px; color: #bbb;">M1（自由电子/mem0）→ M2（有向图/Neo4j）→ NFT（链上确权）。从 Cookable 到 Countable</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 14px;">
+          <div style="font-weight: 600; color: var(--gold); margin-bottom: 4px;">博弈论安全</div>
+          <div style="font-size: 13px; color: #bbb;">5-of-12 Shamir 秘密共享（5 真 + 7 诱饵）· 智能合约 3 分钟窗口 · 多签确认 · 抵御 51% 暴政</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 14px;">
+          <div style="font-weight: 600; color: var(--gold); margin-bottom: 4px;">隐性马尔可夫链</div>
+          <div style="font-size: 13px; color: #bbb;">通过观察 Agent 当前行为序列预测最需要的下一段上下文，在需要之前完成注入——认知 Tab 补全</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 实现状态 -->
+    <div class="section-title">系统实现 · 14 节点，零停机</div>
+    <div class="card">
+      <p style="font-size: 13px; color: #bbb; margin-bottom: 12px;">记忆银行是一个自 2026 年 6 月起持续运行的真实系统，横跨 14 个节点、4 家云服务商、2 个大洲、3 种处理器架构（x86_64、arm64、armv7）。以下组件已投产或验证中：</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
+        <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(255,255,255,0.02); border-radius: 4px;"><span>接入层（QwenPaw/PicoClaw/Hermes）</span><span style="color: #34d399;">✅ 已投产</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(255,255,255,0.02); border-radius: 4px;"><span>MongoDB 上下文管线</span><span style="color: #34d399;">✅ 已投产</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(255,255,255,0.02); border-radius: 4px;"><span>Neo4j 谓词逻辑层</span><span style="color: #34d399;">✅ 已投产</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(255,255,255,0.02); border-radius: 4px;"><span>GraphRAG 藏宝图层</span><span style="color: #34d399;">✅ 已投产</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(255,255,255,0.02); border-radius: 4px;"><span>gbrain 破坏式演绎层</span><span style="color: #34d399;">✅ 已投产</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(255,255,255,0.02); border-radius: 4px;"><span>mem0 + RedisStack 向量层</span><span style="color: #34d399;">✅ 已投产</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(255,255,255,0.02); border-radius: 4px;"><span>汇聚层上链（测试网）</span><span style="color: #fbbf24;">⚠️ 已验证</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(255,255,255,0.02); border-radius: 4px;"><span>核心层 DEX</span><span style="color: #f87171;">❌ 待激活</span></div>
+      </div>
+    </div>
+
+    <!-- 联系 -->
+    <div class="section-title">联系</div>
+    <div class="card">
+      <div class="link-row">
+        <div class="link-icon">🏢</div>
+        <div class="link-text">
+          <div class="link-title">北京觅钥科技有限公司</div>
+          <div class="link-url">Seekkey Tech</div>
+        </div>
+      </div>
+      <div class="link-row">
+        <div class="link-icon">📝</div>
+        <div class="link-text">
+          <div class="link-title">GitHub Organization</div>
+          <div class="link-url">github.com/Seek-Key-LTD</div>
+        </div>
+        <a href="https://github.com/Seek-Key-LTD" target="_blank" class="link-arrow">→</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(232,196,106,0.15);">
+      <div style="font-size: 18px; color: var(--gold); font-weight: 400; margin-bottom: 6px; letter-spacing: 0.1em;">
+        All in one, one for all
+      </div>
+      <div style="font-size: 14px; color: var(--gold-dim); font-weight: 300; margin-bottom: 16px;">
+        万物归元 · 人为从众
+      </div>
+      <div style="font-size: 12px; color: var(--gold-dim);">北京觅钥科技 · TRAE AI 创造力大赛 · 社会服务赛道</div>
+    </div>
+
+  </div>
+</body>
+</html>
