@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ASN Memory Bank Entry Schema",
+  "type": "object",
+  "required": [
+    "entry_id",
+    "scholar_code",
+    "evidence_tier",
+    "timestamp",
+    "content",
+    "causal_anchors"
+  ],
+  "properties": {
+    "entry_id": {
+      "type": "string",
+      "description": "全局唯一记忆条目 UUID"
+    },
+    "scholar_code": {
+      "type": "string",
+      "enum": [
+        "emei", "qingyi", "yuyang", "leshan", "zijin",
+        "yunzhong", "shengle", "zhuhu", "yakawa", "senna",
+        "putuo", "shidu", "dunhuang", "luojia", "zhichun",
+        "liangzhu", "panyu", "langya"
+      ]
+    },
+    "evidence_tier": {
+      "type": "string",
+      "enum": ["fact", "interpretation", "hypothesis"],
+      "description": "严格证据档位：事实 [Fact] / 解释 [Interpretation] / 假说 [Hypothesis]"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "epoch_year": {
+      "type": "integer",
+      "description": "涉案历史断代年份 (如 1644, 1987, -2000)"
+    },
+    "content": {
+      "type": "string",
+      "description": "力透纸背的记忆正文或证明论中间态"
+    },
+    "causal_anchors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "前置依赖的事件 ID 或出土文献 Hash"
+    },
+    "is_encrypted_mind_note": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
