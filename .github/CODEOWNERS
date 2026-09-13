@@ -1,0 +1,10 @@
+# Memory Bank Codeowners & Reviewers
+
+# 核心架构与中央银行三层规范
+/docs/                  @Seek-Key-LTD
+/schemas/               @Seek-Key-LTD
+
+# 自动化测试与 CI 流水线
+/scripts/               @Seek-Key-LTD
+/.github/               @Seek-Key-LTD
+/.gitea/                @Seek-Key-LTD
