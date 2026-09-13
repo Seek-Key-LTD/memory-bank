@@ -2,7 +2,7 @@ User houzhongxu set home directory to /home/
 §
 Project: 《双约记》(Dual Covenant Record) - geopolitical semantic knowledge base
 Location: /home/ben/wikijs (develop branch)
-Author: 徐厚重 (Ben Xu)
+Author: 锁侠 (Locksley Knight)
 Structure: 9 chapters (1936-2022) + Preface + 15 RFC files
 Core thesis: Power is thermodynamic - empires that externalize costs (AC/sea power) survive; those that can't (refrigerator/land power) implode
 5 meta-concepts: Blood Reward Law, Tidal Economics, Nomad/Sailor Logic, Refrigerator/AC Metaphor, Cold War OS
